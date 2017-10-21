@@ -158,7 +158,10 @@ void AFlockAIPlayer::DoSpawning()
     {
         if (CurrentGamemode == EFlockAIGamemode::EGM_SpawnNewAgents)
         {
-            GetWorld()->SpawnActor<AAgent>(AgentBP, SpawningLocation, (MouseLocation - SpawningLocation).Rotation());
+			for (int i = 0; i < 10; ++i)
+			{
+				GetWorld()->SpawnActor<AAgent>(AgentBP, SpawningLocation, (MouseLocation - SpawningLocation).Rotation());
+			}
         }
         else if (CurrentGamemode == EFlockAIGamemode::EGM_SpawnPositiveStimuli)
         {

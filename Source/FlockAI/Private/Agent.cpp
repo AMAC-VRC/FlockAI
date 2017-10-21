@@ -6,7 +6,9 @@
 
 AAgent::AAgent()
 {
-    PrimaryActorTick.bCanEverTick = true;
+	PrimaryActorTick.bCanEverTick = true;
+	PrimaryActorTick.bStartWithTickEnabled = true;
+	PrimaryActorTick.bAllowTickOnDedicatedServer = true;
     
     // Initializing default values
     BaseMovementSpeed = 200.0f;
@@ -31,6 +33,7 @@ void AAgent::BeginPlay()
 {
     // Initialize move vector
     NewMoveVector = GetActorRotation().Vector().GetSafeNormal();
+	SetActorTickEnabled(true);
 }
 
 void AAgent::Tick(float DeltaSeconds)
